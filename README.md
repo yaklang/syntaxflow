@@ -90,6 +90,9 @@ modify `/ession-1-hello-world/HelloWorld.java` as your will, try the same Syntax
 
 # Advanced Lesson
 
+1. [Hello World](/lesson-1-hello-world/): Quick Start
+2. [Cross Function Tester](/lesson-2)
+
 Coming...
 
 if you are hungry for SyntaxFlow really? see `github.com/yaklang/yaklang` project and track main branch.
