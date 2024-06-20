@@ -1,16 +1,17 @@
-public class RuntimeExecCrossFunction {
+public class External {
     public String crossFunction(String cmd) {
         return "echo 'Hello World'";
     }
-
+}
+public class RuntimeExecCrossFunction {
     @RequestMapping("/runtime")
-    public String RuntimeExecCrossFunction(String cmd, Model model) {
+    public String RuntimeExecCross(String cmd, Model model) {
         StringBuilder sb = new StringBuilder();
         String line;
 
         try {
-            String actualCmd = crossFunction(cmd);
-            Process proc = Runtime.getRuntime().exec(actualCmd);
+            External extern = new External();
+            Process proc = Runtime.getRuntime().exec(extern.crossFunction(cmd));
 
             InputStream fis = proc.getInputStream();
             InputStreamReader isr = new InputStreamReader(fis, "GBK");
