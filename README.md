@@ -1,5 +1,7 @@
 # 欢迎使用 SyntaxFlow 
 
+> If you are an English Speaker, See [THIS README_en.md](README_en.md)
+
 SyntaxFlow 是一个 Yaklang 出品的编译器级的高级静态分析语言。你可以使用 SyntaxFlow 分析被 Yaklang SSA 编译器编译后的程序（IrCode in Database）。
 
 # !!DANGEROUS NOTICE
