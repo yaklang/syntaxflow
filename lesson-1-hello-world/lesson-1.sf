@@ -1,0 +1,6 @@
+desc(title: "This is Hello World for SyntaxFlow, simple but great!")
+
+Runtime.getRuntime().exec(* #-> * as $source) as $sink;
+
+check $source then "找到系统命令执行参数位置（依赖）" else  "没有找到参数"
+check $sink then "找到系统命令执行位置" else "没有执行命令";

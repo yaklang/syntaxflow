@@ -2,23 +2,16 @@
 @RequestMapping("/home/rce")
 public class RuntimeExec {
     @RequestMapping("/runtime")
-    public String RuntimeExec(String cmd, Model model) {
+    public String RuntimeExec(@GetParam(value="id") String cmd, Model model) {
         StringBuilder sb = new StringBuilder();
         String line;
 
 
-
-        // -------------------------------------------------
-        // -------------------------------------------------
-        // -------------------------------------------------
-        // -------------------------------------------------
-        // -------------------------------------------------
-
-
-
         try {
-            Process proc = Runtime.getRuntime().exec(cmd);
+            var runtimeInstance = Runtime.getRuntime();
+            Process proc = runtimeInstance.exec(cmd);
         } catch (IOException e) {
+
         }
         return "basevul/rce/runtime";
     }
