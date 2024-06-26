@@ -1,0 +1,10 @@
+// 审计通过 GroovyShell 实例执行代码的情况
+desc(title: "groovy shell eval")
+
+// 捕获 GroovyShell 的 evaluate 方法调用时传递的所有参数
+GroovyShell().evaluate(* as $cmd)
+// 追踪参数 $cmd 的定义来源，直到最初的定义点
+$cmd #-> * as $target
+
+// 检查是否能追踪到 $cmd 的源头，若无法追踪，则可能存在代码注入风险
+check $target then "fine" else "not found groovyShell.evaluate parameter"

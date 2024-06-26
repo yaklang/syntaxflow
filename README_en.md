@@ -192,4 +192,4 @@ And after completing the quick start, you also learned a new usage `#->`, an ope
 # More Tutorials
 
 1. [Quick Start: Hello-World](/lesson-1-hello-world/)
-2. [SyntaxFlow: Syntax Tutorial](/SyntaxFlow-Cookbook.md)
+2. [SyntaxFlow: Syntax Tutorial](/SyntaxFlow-Cookbook.pdf)

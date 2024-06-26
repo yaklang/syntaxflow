@@ -194,4 +194,4 @@ check $sink then "找到系统命令执行位置" else "没有执行命令";
 # 更多教程
 
 1. [Quick Start: Hello-World](/lesson-1-hello-world/) 
-2. [SyntaxFlow: 语法教程](/SyntaxFlow-Cookbook.md)
+2. [SyntaxFlow: 语法教程](/SyntaxFlow-Cookbook.pdf)

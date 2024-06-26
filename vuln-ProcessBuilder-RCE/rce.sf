@@ -1,0 +1,8 @@
+// 审计潜在的远程代码执行风险
+desc(title: "rce")
+// 捕获创建 ProcessBuilder 对象时的所有参数
+ProcessBuilder(* as $cmd) as $builder
+// 追踪 ProcessBuilder 对象启动进程的方法调用
+$builder.start() as $execBuilder
+// 检查是否成功执行了start方法，如果未执行，则可能存在漏洞
+check $execBuilder then "fine" else "rce 2 SyntaxFlow error"

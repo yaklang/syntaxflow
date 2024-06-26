@@ -1,0 +1,12 @@
+desc(
+    "Title": "审计因为未设置 setFeature 等安全策略造成的XXE漏洞",
+    "Fix": "修复方案：需要用户设置 setFeature / setXIncludeAware / setExpandEntityReferences 等安全配置"
+)
+
+// 审计 DocumentBuilderFactory 是否已经设置了防止 XXE 攻击的安全属性
+DocumentBuilderFactory.newInstance() as $factories;
+$factories?{!((.setFeature) || (.setXIncludeAware) || (.setExpandEntityReferences))} as $entry;
+$entry.*Builder().parse(* #-> as $source);
+
+// 检查 parse 方法的调用源是否安全
+check $source then "XXE Attack" else "XXE Safe";
