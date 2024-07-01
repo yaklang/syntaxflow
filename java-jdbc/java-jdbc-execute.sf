@@ -1,0 +1,11 @@
+desc(
+    title: "JDBC getConnection.createStatement.executeQuery SQL",
+    title_zh: "JDBC getConnection.createStatement.executeQuery SQL 执行语句",
+    is_vuln: "false",
+)
+
+DriverManager.getConnection().createStatement() as $stmt;
+$stmt?{!.set*()} as $checkedStmt;
+$checkedStmt.executeQuery() as $sink;
+
+check $sink;

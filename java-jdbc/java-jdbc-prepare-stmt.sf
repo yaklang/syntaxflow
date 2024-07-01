@@ -1,0 +1,11 @@
+desc(
+    title: "JDBC getConnection.prepareStatement.executeQuery SQL",
+    title_zh: "JDBC getConnection.prepareStatement.executeQuery SQL 执行语句",
+    is_vuln: "false",
+)
+
+DriverManager.getConnection() as $conn;
+$conn.prepareStatement() as $stmt;
+$stmt.executeQuery() as $sink;
+
+// check $sink then "Prepared Statement SQL ExecuteQuery" then "Not Found Prepare Statement SQL ExecuteQuery";
