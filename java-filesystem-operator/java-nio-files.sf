@@ -1,0 +1,10 @@
+desc(
+    title: "find java.nio.file.Files.write",
+    title_zh: "找到 java.nio.file.Files.write 文件读写位置",
+    is_vuln: false,
+)
+
+Files.write() as $sink;
+
+check $sink then "Found nio Files.write" else "No java.nio.Files.write";
+alert $sink;

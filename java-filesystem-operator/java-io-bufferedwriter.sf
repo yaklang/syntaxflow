@@ -1,0 +1,9 @@
+desc(
+    title: "find java.io.BufferedWriter",
+    title_zh: "查找 java.io.BufferedWriter 文件写入点",
+    is_vuln: false,
+);
+
+BufferedWriter().write() as $sink
+
+check $sink then "java.io.BufferedWriter 文件写入位置" else "not found";

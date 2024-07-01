@@ -1,0 +1,9 @@
+desc(
+    title: "find java.io.FileWriter.write",
+    title_zh: "寻找 java.io.FileWriter.write 文件读写点",
+    is_vuln: "false")
+
+FileWriter().write(* #-> as $content) as $sink;
+
+check $sink then "FileWriter Write Position" else "No Found FileWriter";
+alert $sink;

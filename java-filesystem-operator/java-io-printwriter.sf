@@ -1,0 +1,10 @@
+desc(
+    title: 'find java.io.PrintWriter',
+    title_zh: '寻找 java.io.PrintWriter 写入位置',
+    is_vuln: false,
+);
+
+PrintWriter()./(?i)(print*)|(write*)/() as $sink;
+
+check $sink then "PrintWriter Write Position" else "Not Found";
+alert $sink;

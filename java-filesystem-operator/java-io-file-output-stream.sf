@@ -1,0 +1,11 @@
+desc(
+    title: "find FileOutputStream.write",
+    title_zh: "寻找 FileOutputStream.write 文件写入点",
+    is_vuln: "false"
+)
+
+FileOutputStream() as $stream;
+$stream.write() as $sink;
+
+check $sink then "File Write Position" else "FileOutputStream not found."
+alert $sink;
