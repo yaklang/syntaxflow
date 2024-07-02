@@ -4,8 +4,7 @@ desc(
     is_vuln: "false"
 )
 
-FileOutputStream() as $stream;
-$stream.write() as $sink;
+FileOutputStream(*?{opcode: const} as $filename).write() as $sink;
 
 check $sink then "File Write Position" else "FileOutputStream not found."
-alert $sink;
+alert $filename;
