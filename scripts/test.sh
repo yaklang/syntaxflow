@@ -1,16 +1,21 @@
 #!/bin/bash
 
-# 定义目录和项目名称数组
 PROJECTS=("java-jdbc" "java-springboot-misc" "java-filesystem-operator")
 
-# 遍历数组
 for PROJECT in "${PROJECTS[@]}"; do
-    # 执行 YAK 静态安全分析和安全固定
-    echo "Running YAK for project $PROJECT"
-    yak ssa -t ./$PROJECT -p $PROJECT && yak sf -p $PROJECT $PROJECT
+    echo "Running YAK SSA for project $PROJECT"
+    yak ssa -t ./$PROJECT -p $PROJECT
     if [ $? -ne 0 ]; then
-        echo "Error processing $PROJECT"
-    else
-        echo "Completed processing $PROJECT"
+        echo "Error running YAK SSA for $PROJECT"
+        exit 1  # 退出状态1表示错误
     fi
+
+    echo "Running YAK SF for project $PROJECT"
+    yak sf -p $PROJECT $PROJECT
+    if [ $? -ne 0 ]; then
+        echo "Error running YAK SF for $PROJECT"
+        exit 1  # 退出状态1表示错误
+    fi
+
+    echo "Completed processing $PROJECT"
 done

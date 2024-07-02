@@ -20,6 +20,9 @@ jobs:
           wget -O yak https://aliyun-oss.yaklang.com/yak/1.3.4-alpha9/yak_linux_amd64
           chmod +x yak
 
+      - name: Setup PATH
+        run: echo "${GITHUB_WORKSPACE}" >> $GITHUB_PATH
+
       - name: Execute test script
         run: |
           chmod +x scripts/test.sh
