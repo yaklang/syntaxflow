@@ -4,6 +4,7 @@ desc(
     is_vuln: false,
 );
 
-BufferedWriter().write() as $sink
+BufferedWriter(*?{opcode: const} as $filename).write() as $sink
 
-check $sink then "java.io.BufferedWriter 文件写入位置" else "not found";
+alert $filename;
+check $sink then "java.io.BufferedWriter Write Position" else "not found";

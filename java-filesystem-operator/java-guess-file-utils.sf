@@ -1,0 +1,5 @@
+/(?i)files?utils?/ as $entry;
+$entry./(?i)(save.*)|(write.*)/() as $sink;
+$entry()./(?i)(save.*)|(write.*)/() as $sink;
+
+check $sink then "Found FileUtils (FileSystem Wrapper) for Writing" else "Not FileUtils Found";
