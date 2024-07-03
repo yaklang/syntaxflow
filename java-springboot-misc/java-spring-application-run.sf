@@ -1,0 +1,4 @@
+SpringApplication.run(,* #-> as $args) as $startup;
+
+check $startup then "SpringApplication.run" else "Not Found Spring Application Entry."
+alert $args;

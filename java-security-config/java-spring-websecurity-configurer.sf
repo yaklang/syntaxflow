@@ -1,0 +1,5 @@
+configure(* as $configEntry);
+
+$configEntry ... csrf().disable() as $disableCSRF;
+
+check $disableCSRF;

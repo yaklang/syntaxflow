@@ -1,6 +1,11 @@
 #!/bin/bash
 
-PROJECTS=("java-jdbc" "java-springboot-misc" "java-filesystem-operator")
+PROJECTS=(
+  # "java-security-config"
+  "java-filesystem-operator"
+  "java-jdbc"
+  "java-springboot-misc"
+)
 
 for PROJECT in "${PROJECTS[@]}"; do
     echo "Running YAK SSA for project $PROJECT"

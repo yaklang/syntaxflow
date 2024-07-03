@@ -1,0 +1,9 @@
+/(?i).*xss.*((clear)|(filter)|(escape)).*/ as $entryCall;
+/(?i)((clear)|(filter)|(escape)).*xss.*/ as $entryCall;
+
+$entryCall(* as $paramEntry);
+$paramEntry.../(?i)replace(all)?/() as $replacers;
+
+check $entryCall then "Find XSS Escaper" else "No XSS Escaper";
+alert $replacers;
+
