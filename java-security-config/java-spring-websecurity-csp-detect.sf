@@ -1,0 +1,6 @@
+configure(*?{opcode: param} as $entry);
+
+$entry...headers()...contentSecurityPolicy(* as $data) as $csp;
+
+check $csp then "Found Springboot CSP Config" else "No CSP Configuration"
+alert $data;
