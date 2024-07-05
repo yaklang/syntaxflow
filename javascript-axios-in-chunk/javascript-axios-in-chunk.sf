@@ -1,0 +1,9 @@
+.create(*.../(?i)baseurl/ as $baseUrl)
+
+/(?i)(
+    (get)|(post)|(patch)|(delete)
+)/(*?{(have: '/') && (opcode: const)} as $route,);
+
+
+check $baseUrl then "Found Axios.Create({baseUrl})" then "cannot find Axios.Create({baseUrl})";
+check $route then "Found something like Route from axios";
