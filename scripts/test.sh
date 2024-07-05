@@ -1,10 +1,12 @@
 #!/bin/bash
 
 PROJECTS=(
-  # "java-security-config"
   "java-filesystem-operator"
+  "java-freemaker"
   "java-jdbc"
+  "java-security-config"
   "java-springboot-misc"
+  "javascript-axios-in-chunk"
 )
 
 for PROJECT in "${PROJECTS[@]}"; do
