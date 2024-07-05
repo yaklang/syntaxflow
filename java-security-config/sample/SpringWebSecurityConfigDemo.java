@@ -13,7 +13,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .csrf().disable().and(). // 开启 CSRF 保护，默认使用
+            .csrf().disable().and() // 开启 CSRF 保护，默认使用
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())  // 使用 Cookie 存储 CSRF 令牌
                 .and()
             .headers()

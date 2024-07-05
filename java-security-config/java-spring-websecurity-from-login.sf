@@ -1,0 +1,20 @@
+desc(
+  title: 'checking [WebSecurityConfigurerAdapter -> fromLogin] existed',
+  type: audit
+)
+
+// write your SyntaxFlow Rule, like:
+//     DocumentBuilderFactory.newInstance()...parse(* #-> * as $source) as $sink; // find some call chain for parse
+//     check $sink then 'find sink point' else 'No Found' // if not found sink, the rule will stop here and report error
+//     alert $source // record $source
+
+configure(*?{opcode: param} as $configEntry);
+$configEntry ... authorizeRequests().../(?i).*matcher.*/()...authenticated() as $auth
+
+$configEntry ... formLogin()...loginPage(*?{opcode: const} as $loginPage ) as $sink;
+
+check $sink then "Found formLogin().loginPage()" else "Not Found login page";
+alert $loginPage;
+alert $auth;
+
+// the template is generate by yak.ssa.syntaxflow command line
