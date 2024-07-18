@@ -1,0 +1,8 @@
+desc(
+    title: "Fetch '${' from ID and check the Source from server/controller",
+    type: audit
+)
+
+${*.xml}.xpath("//mapper/*[contains(., '${') and @id]/@id") as $id;
+$id
+check $id;
