@@ -1,0 +1,16 @@
+desc(
+  title: 'checking [Servlet Interface Finding]',
+  type: audit
+)
+
+
+.getParameter as $entry;
+check $entry;
+$entry<getObject> as $param;
+check $param;
+$param?{opcode: param} as $fparam; check $fparam;
+$entry(*?{opcode: const} as $parameterName);
+alert $parameterName;
+
+// /do((Get)|(Post)|(Put)|(Delete)|(Head)|(Options)|(Trace))/(*?{opcode: param} as $params) as $entry;
+// check $entry;

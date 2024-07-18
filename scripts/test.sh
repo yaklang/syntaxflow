@@ -7,6 +7,8 @@ PROJECTS=(
   "java-security-config"
   "java-springboot-misc"
   "javascript-axios-in-chunk"
+  "java-servlet"
+  "java-springboot-controller"
 )
 
 for PROJECT in "${PROJECTS[@]}"; do
