@@ -1,0 +1,24 @@
+desc(
+  title: 'checking [Controller\'s Method Entry]',
+  type: audit
+)
+
+GetMapping.__ref__ as $entry;
+PostMapping.__ref__ as $entry;
+PutMapping.__ref__ as $entry;
+DeleteMapping.__ref__ as $entry;
+$entry(*?{!have: this} as $params);
+
+$params?{.annotation.Cookie*} as $cookie;
+$params?{.annotation.RequestBody} as $requestBody;
+$params?{.annotation.PathVariable} as $pathVariable;
+$params?{.annotation.RequestHeader} as $headerParams;
+
+check $entry then "Found Controller Entry" else "No SpringFramework Controller Entry Found";
+alert $params for "Controller Params";
+alert $cookie for "Cookie Params"
+alert $requestBody for "Request Body Params";
+alert $pathVariable for "Path Variable Params";
+alert $headerParams for "Header Params";
+
+// the template is generate by yak.ssa.syntaxflow command line
