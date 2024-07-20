@@ -2,7 +2,7 @@
 
 PROJECTS=(
   "java-filesystem-operator"
-  "java-freemaker"
+  "java-freemarker"
   "java-jdbc"
   "java-security-config"
   "java-springboot-misc"

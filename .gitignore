@@ -1,3 +1,5 @@
+*.sarif.bak
+*.sarif
 ./gen/*
 *~
 yakmisc-*
