@@ -1,0 +1,12 @@
+desc(
+  title: 'checking [XSS Weak Handler from Springboot Controller Params]',
+  type: vuln
+)
+
+*Mapping.__ref__(*?{opcode: param && !have: this} as $params);
+check $params;
+$params -{hook: `*<getFunc>?{!any: /(?i)((xss)|(filter)|(escape))/} as $filter`}-> <getFunc> as $sink;
+check $sink;
+$sink?{any: '.ok', '.body', 'ResponseEntity'} as $output;
+check $output;
+alert $output;

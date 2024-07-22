@@ -1,0 +1,4 @@
+noDeepCross5 as $entry;
+$entry(*?{!have: this && opcode: param} as $params)
+
+$params --> as $sink;

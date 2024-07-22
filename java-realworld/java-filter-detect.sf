@@ -1,0 +1,13 @@
+desc(
+  title: 'checking [XSS Filter from Springboot Controller Params]',
+  type: audit
+)
+
+*Mapping.__ref__(*?{opcode: param && !have: this} as $params);
+check $params;
+
+$params -{until: `* <getFunc> ?{ any: /(?i).*xss.*/, /(?i).*filter.*/, /(?i).*escape.*/, /(?i).*encodexss.*/, /(?i).*xss.*?encode.*/, filterXSS } as $filter`}-> *;
+check $filter;
+
+$filter() -{hook: `*?{any: '.ok', '.body', 'ResponseEntity' && !opcode: param} as $sink` }-> *;
+check $sink
