@@ -1,9 +1,11 @@
 package com.example.demo.controller.contextreq;
 
+import com.example.demo.controller.utils.DummyUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -35,5 +37,28 @@ public class ContextRequestController {
         }
         mav.addObject("name", request.getParameter("name"));
         return mav;
+    }
+
+    @RequestMapping("/xss/mvc/holderreq-cross")
+    public ModelAndView unstandardRequestHandlerHolder2() {
+        ModelAndView mav = new ModelAndView("welcome");
+        if (request == null) {
+            mav.addObject("name", "Cotton Eye Joe");
+            return mav;
+        }
+        mav.addObject("name", DummyUtil.getParameter("name"));
+        return mav;
+    }
+
+    @RequestMapping("/xss/mvc/holderreq-cross-2")
+    public String unstandardRequestHandlerHolder3() {
+        // this is a hard case, we need to check the request object
+        // and the DummyUtil.getParameter() method
+        HttpServletRequest request = DummyUtil.getRequest();
+        if (request == null) {
+            return "welcome";
+        }
+        request.setAttribute("name", request.getParameter("name"));
+        return "welcome";
     }
 }

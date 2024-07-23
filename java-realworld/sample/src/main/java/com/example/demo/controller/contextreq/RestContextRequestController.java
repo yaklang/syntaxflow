@@ -1,5 +1,6 @@
 package com.example.demo.controller.contextreq;
 
+import com.example.demo.controller.utils.DummyUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,5 +28,10 @@ public class RestContextRequestController {
         HttpServletRequest request = sra.getRequest();
         request.getParameter("name");
         return "Name: " + request.getParameter("name") + "RequestURI: " + request.getRequestURI();
+    }
+
+    @RequestMapping("/xss/holderreq-cross")
+    public String unstandardRequestHandlerHolder2() {
+        return "Name: " + DummyUtil.getParameter("name");
     }
 }
