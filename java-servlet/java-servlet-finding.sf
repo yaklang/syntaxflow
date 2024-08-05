@@ -1,7 +1,7 @@
 desc(
   title: 'checking [Servlet Web Parameters Finding]',
   type: audit,
-  lib: servlet-params
+  lib: 'servlet-params'
 )
 
 /(do(Get|Post|Delete|Filter|\w+))|(service)/(*?{!have: this && opcode: param } as $req);

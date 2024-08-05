@@ -1,0 +1,12 @@
+desc(
+  title: 'checking []',
+  type: audit
+)
+
+// Action.__ref__?{opcode: function}<getObject> as $actions;
+.inherits?{have: ActionSupport}<getObject>.set*?{opcode: function} as $setter;
+$setter<name><regexp("^set(\\w+)$", group=1)><strlower> as $name;
+$setter<getObject><name>?{!have: ':' && !have: " " && !have: '='} as $class;
+
+
+<fuzztag("{{class}}./(?i){{name}}/ as $entry")><eval>;

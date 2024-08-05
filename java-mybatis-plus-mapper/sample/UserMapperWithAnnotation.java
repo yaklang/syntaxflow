@@ -2,7 +2,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.*;
 import java.util.List;
 
-public interface UserMapper extends BaseMapper<User> {
+public interface UserMapperWithAnnotation extends BaseMapper<User> {
     @Select("SELECT * FROM users WHERE age = #{age} AND name = #{name} AND email = #{email}")
     List<User> selectUsersByMultipleFields(int age, String name, String email);
 
