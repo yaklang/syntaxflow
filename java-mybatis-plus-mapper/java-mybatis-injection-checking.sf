@@ -3,10 +3,4 @@ desc(
   type: audit
 )
 
-// write your SyntaxFlow Rule, like:
-//     DocumentBuilderFactory.newInstance()...parse(* #-> * as $source) as $sink; // find some call chain for parse
-//     check $sink then 'find sink point' else 'No Found' // if not found sink, the rule will stop here and report error
-//     alert $source // record $source
-
-
-// the template is generate by yak.ssa.syntaxflow command line
+${*.xml}.xpath("//*/@namespace") as $className;

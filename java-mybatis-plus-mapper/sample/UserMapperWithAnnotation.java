@@ -12,7 +12,7 @@ public interface UserMapperWithAnnotation extends BaseMapper<User> {
     @Delete("DELETE FROM users WHERE id = #{id}")
     int deleteUserById(Long id);
 
-    @Update("UPDATE users SET email = #{email} WHERE id = #{id}")
+    @Update("UPDATE users SET email = #{email} WHERE id = ${id}")
     int updateUserEmailById(Long id, String email);
 
     @Insert("INSERT INTO users (name, age, email) VALUES (#{name}, #{age}, #{email})")
