@@ -1,5 +1,6 @@
 desc(
-    title: "Find Runtime.getRuntime().exec Point",
+    title: "Find Runtime.getRuntime().exec Sink Point",
+    title_zh: "查找 Runtime.getRuntime().exec 参数位置",
     lib: 'runtime-exec',
     type: audit,
 )
