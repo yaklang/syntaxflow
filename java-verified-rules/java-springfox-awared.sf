@@ -12,6 +12,7 @@ check $config
 alert $config;
 
 desc(
+    lang: java,
 'file://config.java': <<<TEXT
 package com.ruoyi.common.swagger.config;
 
