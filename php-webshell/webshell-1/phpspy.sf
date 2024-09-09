@@ -1,0 +1,19 @@
+desc(title: "webshell 1")
+
+_GET as $G
+_POST as $P
+_REQUEST as $R
+
+$G+$P+$R as $source
+
+system as $system
+passthru as $passthru
+shell_exec as $shell
+
+$system+$passthru+$shell as $command
+
+
+$command(* #{until: `*?{<self> & $source} as $vuln`}->)
+
+check $vuln then '命令执行函数中有外部变量' else '未找到命令执行函数或可控外部变量'
+alert $vuln

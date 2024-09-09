@@ -1,0 +1,6 @@
+desc(
+    title: "file upload",
+)
+
+echo(* #-> *?{have: _GET}) as $sink
+alert $sink

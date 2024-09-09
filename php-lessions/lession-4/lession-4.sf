@@ -1,0 +1,6 @@
+desc(
+    title: 'sql inject'
+)
+
+mysqli_query(* #-> *?{have: _GET}) as $sink
+alert $sink

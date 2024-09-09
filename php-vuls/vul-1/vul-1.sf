@@ -1,0 +1,8 @@
+desc(
+    title: 'search file operator param'
+)
+
+*.frparam() as $source
+fopen(* #{until: `<self> & $source`}-> as $sink)
+check $sink
+alert $sink

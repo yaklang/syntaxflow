@@ -1,0 +1,7 @@
+desc(
+    title: 'search php execute code'
+)
+
+eval(* #{any: _POST,_GET,_REQUEST)}-> * as $param)
+check $param
+alert $param
