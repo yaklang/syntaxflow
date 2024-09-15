@@ -1,0 +1,7 @@
+desc(
+    title: 'this is search include param'
+)
+
+include(* #-> *?{any: _GET} as $sink)
+check $sink
+alert $sink

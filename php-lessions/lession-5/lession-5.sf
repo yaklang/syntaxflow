@@ -1,0 +1,9 @@
+desc(
+    title: "tp frame check exec"
+)
+
+input() as $source;
+exec(
+    * #{until: `*?{<self> & $source} as $vuln`}->
+)
+alert $vuln
